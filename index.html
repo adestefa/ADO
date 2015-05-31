@@ -1,0 +1,198 @@
+<html>
+<head><title>Ado - bustle; fuss</title>
+
+<style>
+body { 
+	background:white;
+	color:black;
+	font-size:16px;
+}
+a { text-decoration:none;padding-right:50px; }
+a:visited { color:blue; }
+a:active { color:red; }
+ul {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0;
+}
+ 
+li {
+  font: 50 14px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 0px solid #ccc;
+  margin-top:10px;
+}
+ 
+li:last-child {
+  border: none;
+}
+ 
+li a {
+  text-decoration: none;
+  display: block;
+  width: 50px;
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+ 
+li a:hover {
+  font-size: 16px;
+  background: #f6f6f6;
+}
+meter { 
+	width:200px;
+	background:white;
+	border:1px solid gray;
+}
+
+
+.hide { display:none; }
+.stageA {
+	position:relative;
+	float:left;
+	width:400px;
+	height:200px;
+	border:0px dotted green;
+	color:black;	
+	margin-left:5px;
+}
+
+.stageB {
+	position:relative;
+	float:left;
+	width:400px;
+	height:200px;
+	border:0px dotted green;
+	color:black;
+		
+}
+#messages {
+	position:relative;
+	float:left;
+	width:800px;
+	height:50px;
+	border:0px solid red;
+	
+	
+}
+
+#footer {
+	position:relative;
+	float:left;
+	width:800px;
+	height:50px;
+	border:1px solid black;
+	margin-left:5px;
+}
+.running {
+	text-decoration:none;
+	color : gray;
+	cursor : wait;	
+}
+.done {
+	color : blue;
+	cursor : pointer;	
+}
+.hurt1 {
+	background:rgb(250,198,198);
+}
+.hurt2 {
+	background:rgb(247,114,114);
+}
+.hurt3 {
+	background:rgb(248,47,47);
+}
+.hurt4 {
+	background:rgb(250,2,2);
+}
+.overlay {
+	position:absolute;
+	left:0;
+	top:0;
+	width:1000px;
+	height:1000px;
+	border:2px solid red;
+	background:black;
+	text-align:center;
+	padding-top:40px;
+	
+	}
+#sound_test {
+	
+	float:left;
+}	
+</style>
+
+</head>
+<body>
+	<div class="stageA" id="actions">
+		stage A<br />
+		<ul>
+		<li><a id="action_mine" href="#">Mine</a><progress  id="meter_mine" value="0" min="0" max="100">test</progress></li>
+		<li><a id="action_hunt" href="#">Fight</a><progress  id="meter_hunt" value="0" min="0" max="100">test</progress></li>
+		<li><a id="action_punch" href="#">Punch</a><progress  id="meter_punch" value="0" min="0" max="100">test</progress></li>
+		<li><a id="action_breathe" href="#">Breathe</a><meter  id="meter_breathe" value="0" min="0" max="100"></meter></li>
+		</ul>
+	</div>
+	
+	<div class="stageB" id="area2">
+		Resources:
+		<ul>
+		<li>Life:<span id="p_life">0</span></li>
+		<li>Gold:<span id="p_gold">0</span></li>
+		<li>Bones:<span id="p_bones">0</span></li>
+		</ul>
+	</div>
+	
+	
+
+	
+	<div style="margin-left:350;"><div id="messages"></div></div>
+
+	<div id="footer">
+	</div>
+	
+	<audio id="sound_clang" src="sounds/sword3.wav" preload="auto"></audio>
+	<audio id="sound_coin" src="sounds/smw_coin.wav" preload="auto"></audio>
+	<audio id="sound_click" src="sounds/click.wav" preload="auto"></audio>
+	<audio id="sound_slash" src="sounds/slash.wav" preload="auto"></audio>
+	<audio id="sound_mine" src="sounds/mining.wav" preload="auto"></audio>
+	<audio id="sound_breathe" src="sounds/bubbling1.wav" preload="auto"></audio>
+	<audio id="sound_heartbeat2" src="sounds/heartbeat2.wav" preload="auto"></audio>
+	<audio id="sound_die" src="sounds/die.wav" preload="auto"></audio>
+	<audio id="sound_damage" src="sounds/damage.wav" preload="auto"></audio>
+	<audio id="sound_heal" src="sounds/heal.wav" preload="auto"></audio>
+	
+	
+	
+	<div id="die" class="overlay" style="display:none">
+		<h1 style="color:white">You Died... Game Over</h1>
+		<input type="button" value="Start over" onclick="ADO.G.resurect();" />
+	</div>
+	
+	
+	<div id="sound_test">
+		<input type="button" value="clang" onclick="ADO.play_sound('clang')" />
+		<input type="button" value="coin" onclick="ADO.play_sound('coin')" />
+		<input type="button" value="click" onclick="ADO.play_sound('click')" />
+		<input type="button" value="slash" onclick="ADO.play_sound('slash')" />
+		<input type="button" value="mining" onclick="ADO.play_sound('mine')" />
+		<input type="button" value="breathe" onclick="ADO.play_sound('breathe')" />
+		<input type="button" value="breathe" onclick="ADO.play_sound('heartbeat2')" />
+		<input type="button" value="die" onclick="ADO.G.die();" />
+		<input type="button" value="damage" onclick="ADO.G.damage(1);" />
+		<input type="button" value="heal" onclick="ADO.G.heal(1);" />
+		<input type="button" value="Go" onclick="ADO.TYPER.set('You find yourself floating in a boat')" />
+	</div>
+	
+	
+	<script src="jquery.js"></script>
+	
+	<script src="ado_g.js"></script>
+
+
+</body>
+</html>

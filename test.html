@@ -1,0 +1,92 @@
+<html>
+<head><title>Ado - bustle</title>
+
+<style>
+body { 
+	background:white;
+	color:black;
+	font-size:16px;
+}
+section {
+	border : 1px solid black;
+	width : 800px;
+	height: 400px;
+	margin: 0 auto;	
+	
+}	
+#life {
+	position:relative;
+	float:left;
+	border:1px solid red;
+	width:150px;
+	text-align:left;
+}
+#magic {
+	position:relative;
+	float:right;
+	border:1px solid red;
+	width:150px;
+	text-align:left;
+}
+.meter {
+	
+	
+	background-color:gray;	
+}
+	
+</style>
+</head>
+<body>
+	
+	<section>
+	<div id="life">
+	<span style="width:100px;border:1px solid black">Life:</span><meter  id="meter_life" style="width:100px;" value="100" min="0" max="100"></meter><br />
+	
+	</div>
+	<div id="magic">
+	<span style="width:150px;">Magic</span> &nbsp;<meter  id="meter_life" style="width:100px;" value="100" min="0" max="100"></meter>
+	</div>
+	
+	</section>
+	
+<canvas id="m1" width="100" height="20" class="meter"></canvas>
+<script>
+
+
+function makeMeter (id) {
+	var c = document.createElement('canvas');
+	c.id=id;
+	c.width=100;
+	c.height=20;
+	c.style.background = 'gray';
+	document.body.appendChild(c);
+
+}
+
+function setMeter(id, width) {
+	var canvas = document.getElementById(id);
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 4, 100, 12);
+	//(x, y, width, height)
+	context.fillRect(0, 4, width, 12);
+}
+
+
+
+</script>
+
+	<audio id="sound_clang" src="sounds/sword3.wav" preload="auto"></audio>
+	<audio id="sound_coin" src="sounds/smw_coin.wav" preload="auto"></audio>
+	<audio id="sound_click" src="sounds/click.wav" preload="auto"></audio>
+	<audio id="sound_slash" src="sounds/slash.wav" preload="auto"></audio>
+	<audio id="sound_mine" src="sounds/mining.wav" preload="auto"></audio>
+	<audio id="sound_breathe" src="sounds/bubbling1.wav" preload="auto"></audio>
+	<audio id="sound_heartbeat2" src="sounds/heartbeat2.wav" preload="auto"></audio>
+	<audio id="sound_die" src="sounds/die.wav" preload="auto"></audio>
+	<audio id="sound_damage" src="sounds/damage.wav" preload="auto"></audio>
+	<audio id="sound_heal" src="sounds/heal.wav" preload="auto"></audio>
+
+	<script src="jquery.js"></script>
+	<script src="ado_g.js"></script>
+</body>
+</html>
