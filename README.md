@@ -25,10 +25,10 @@ At the basic requirements:
 - [action_breathe
 
 # JS solution
-ADO        // Main ADO object container
-ADO.G      // Game object  - Logic / Interface
-ADO.P      // Player is a lightwieght object container
-ADO.Action // Does the heavy lifting
-ADO.TYPER  // Type like a human
+- ADO        // Main ADO object container
+- ADO.G      // Game object  - Logic / Interface
+- ADO.P      // Player is a lightwieght object container
+- ADO.Action // Does the heavy lifting
+- ADO.TYPER  // Type like a human
 
 
