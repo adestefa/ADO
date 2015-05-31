@@ -1,6 +1,6 @@
 # ADO
 
-I was inspired by the fabulous game [A Dark Room](http://adarkroom.doublespeakgames.com/). It has many key elements that stand out: simplicity in UI; Exploration as play; timed elements (cool downs) and expansive storyline that is very engaging. This game has more depth and emotion than many current games with their fancy 3D graphics and special effects. 
+I was inspired by the fabulous game [A Dark Room](http://adarkroom.doublespeakgames.com/). It has many key elements that stand out: simplicity in UI; exploration as play; timed elements (cool downs) and expansive storyline that is very engaging. This game has more depth and emotion than many current games with their fancy 3D graphics and special effects. 
 
 I wanted to experiment with these ideas myself, and see if I can create a few simple objects in JavaScript to handle any number of actions, cool-downs and storyline. I spent a weekend in July of 2013, setting up the main game objects and a simple UI to test the gameplay elements.
 
